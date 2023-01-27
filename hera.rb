@@ -5,42 +5,42 @@
 class Hera < Formula
   desc ""
   homepage "https://github.com/nuntiodev/homebrew-nuntio"
-  version "0.0.21"
+  version "0.0.22"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.21/cli_Darwin_arm64.tar.gz"
-      sha256 "46ed574edac5e00037d491b155ec68a9d2b70eee5ce6d61ee9eb3f7b6f2c49fa"
+      url "https://github.com/nuntiodev/cli/releases/download/0.0.22/cli_Darwin_arm64.tar.gz"
+      sha256 "547de64aece7f2e590fd01fa290cae9af1f3cf69ab27edcdd1fdec101b45b1f2"
 
       def install
-        bin.install "hera"
+        bin.install "cli"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.21/cli_Darwin_x86_64.tar.gz"
-      sha256 "c6e1a99a5161bf5a4f43608e23b8d8937fb282944ef0fd21a96f940fa0fb443b"
+      url "https://github.com/nuntiodev/cli/releases/download/0.0.22/cli_Darwin_x86_64.tar.gz"
+      sha256 "aa613c47a897f4e010040c8da2c1fe03f52d732f66d05e56658a859bf7ecae62"
 
       def install
-        bin.install "hera"
+        bin.install "cli"
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.21/cli_Linux_x86_64.tar.gz"
-      sha256 "e6762cb9f5856bc03dceb6e482142dd3ce7b74995c0d579bd5945def11fe0653"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/nuntiodev/cli/releases/download/0.0.22/cli_Linux_arm64.tar.gz"
+      sha256 "64dc7da64f58829f4821db8e617a1923b41a58808c9c39ee60124e7a706eb2a7"
 
       def install
-        bin.install "hera"
+        bin.install "cli"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.21/cli_Linux_arm64.tar.gz"
-      sha256 "70b225fcaa5373660f662227bd97dc543952da9288b151ca378bf4fe21d2e37d"
+    if Hardware::CPU.intel?
+      url "https://github.com/nuntiodev/cli/releases/download/0.0.22/cli_Linux_x86_64.tar.gz"
+      sha256 "0c769fe3e763186e23cad618e7b09f349e1af62d99e2b40d67ac9ca5203cc91f"
 
       def install
-        bin.install "hera"
+        bin.install "cli"
       end
     end
   end
