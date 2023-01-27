@@ -5,20 +5,20 @@
 class Hera < Formula
   desc ""
   homepage "https://github.com/nuntiodev/homebrew-nuntio"
-  version "0.0.22"
+  version "0.0.23"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/nuntiodev/cli/releases/download/0.0.22/cli_Darwin_arm64.tar.gz"
-      sha256 "547de64aece7f2e590fd01fa290cae9af1f3cf69ab27edcdd1fdec101b45b1f2"
+    if Hardware::CPU.intel?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.23/cli_Darwin_x86_64.tar.gz"
+      sha256 "cca5b4a2cc91552e238a7b77fb4a2aef661e3c204fa112cba22d2a67126f743b"
 
       def install
         bin.install "cli"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/0.0.22/cli_Darwin_x86_64.tar.gz"
-      sha256 "aa613c47a897f4e010040c8da2c1fe03f52d732f66d05e56658a859bf7ecae62"
+    if Hardware::CPU.arm?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.23/cli_Darwin_arm64.tar.gz"
+      sha256 "a74c6983a845f0650c291fffeeb890465a92c4661fb981b23bfa3cc3586701c8"
 
       def install
         bin.install "cli"
@@ -27,17 +27,17 @@ class Hera < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nuntiodev/cli/releases/download/0.0.22/cli_Linux_arm64.tar.gz"
-      sha256 "64dc7da64f58829f4821db8e617a1923b41a58808c9c39ee60124e7a706eb2a7"
+    if Hardware::CPU.intel?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.23/cli_Linux_x86_64.tar.gz"
+      sha256 "32139ab4aa7f98ab7469f96ffe658964a771998ef4606ed990f0697f53ba2dac"
 
       def install
         bin.install "cli"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/0.0.22/cli_Linux_x86_64.tar.gz"
-      sha256 "0c769fe3e763186e23cad618e7b09f349e1af62d99e2b40d67ac9ca5203cc91f"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.23/cli_Linux_arm64.tar.gz"
+      sha256 "21b132289cdfc76b1f3ea7f711fae44bb993d9e0fc414720d240039abd9390d7"
 
       def install
         bin.install "cli"
