@@ -5,42 +5,54 @@
 class Nuntio < Formula
   desc ""
   homepage "https://github.com/nuntiodev/homebrew-nuntio"
-  version "0.0.24"
+  version "0.0.25"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.24/cli_Darwin_arm64.tar.gz"
-      sha256 "099eb63a1120e6e77c553d8e81e6fa6953a55612bccc2e2ed4f7510f733f3352"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.25/cli_Darwin_arm64.tar.gz"
+      sha256 "fb40abe65b3d5472d5a885699d51cc6c1a8101a10fc769f4e40b66947beaa655"
 
       def install
-        bin.install "cli"
+        bin.install "nuntio"
+        bash_completion.install "completions/nuntio.bash" => "nuntio"
+        zsh_completion.install "completions/nuntio.zsh" => "nuntio"
+        fish_completion.install "completions/nuntio.fish"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.24/cli_Darwin_x86_64.tar.gz"
-      sha256 "061f4e021be970c3327cac4153df42aed8c9cd2edb17df345eda68a3492b9f1c"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.25/cli_Darwin_x86_64.tar.gz"
+      sha256 "496314a47942f1c7071f7d9f2196a78bc0c613e894e543ed07700b8b283d2a36"
 
       def install
-        bin.install "cli"
+        bin.install "nuntio"
+        bash_completion.install "completions/nuntio.bash" => "nuntio"
+        zsh_completion.install "completions/nuntio.zsh" => "nuntio"
+        fish_completion.install "completions/nuntio.fish"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.24/cli_Linux_arm64.tar.gz"
-      sha256 "c2d47193147e4fb12c4cb465d0b97dc76cf091c2f8d9a8dda996ebaaae3db566"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.25/cli_Linux_arm64.tar.gz"
+      sha256 "8186a4ea7e59b0cc39b0e7df9669e92eec79ee246eb008935643515cf7ebb94f"
 
       def install
-        bin.install "cli"
+        bin.install "nuntio"
+        bash_completion.install "completions/nuntio.bash" => "nuntio"
+        zsh_completion.install "completions/nuntio.zsh" => "nuntio"
+        fish_completion.install "completions/nuntio.fish"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.24/cli_Linux_x86_64.tar.gz"
-      sha256 "e1daa78ff96245e529aa953dc077632358544e738432d353e734bda42a912c9a"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.25/cli_Linux_x86_64.tar.gz"
+      sha256 "4dd287b137bc91b080ce80d5acdbe0e34257f3c53dea556456864f4a1529995e"
 
       def install
-        bin.install "cli"
+        bin.install "nuntio"
+        bash_completion.install "completions/nuntio.bash" => "nuntio"
+        zsh_completion.install "completions/nuntio.zsh" => "nuntio"
+        fish_completion.install "completions/nuntio.fish"
       end
     end
   end
