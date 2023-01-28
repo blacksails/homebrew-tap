@@ -5,20 +5,20 @@
 class Nuntio < Formula
   desc ""
   homepage "https://github.com/nuntiodev/cli/nuntio"
-  version "0.0.51"
+  version "0.0.52"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.51/cli_0.0.51_darwin_arm64.tar.gz"
-      sha256 "36e9f101d88b93c405bacbab2b428490f63a2e963af1785f8f1cb568f03fc53f"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.52/cli_0.0.52_darwin_arm64.tar.gz"
+      sha256 "18424ad4f63750d4d6fdc7495e5c968ac6c51cda46a0db9772401b9850c86b4e"
 
       def install
         bin.install "nuntio"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.51/cli_0.0.51_darwin_amd64.tar.gz"
-      sha256 "c8429926e40b8e5741b4a8159aadc5fda13482b76f380d4dbb0d9a155fbf54cc"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.52/cli_0.0.52_darwin_amd64.tar.gz"
+      sha256 "fc5ef65a41176c378f13a40a129635f2e6f6a54dfddce07bbc888df2ec12ab0d"
 
       def install
         bin.install "nuntio"
@@ -28,16 +28,16 @@ class Nuntio < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.51/cli_0.0.51_linux_amd64.tar.gz"
-      sha256 "a076375ab118d415a584710afbc84c85bc5b9166b50f995860975eda52b531f8"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.52/cli_0.0.52_linux_amd64.tar.gz"
+      sha256 "2fec243725f5afd2fbd010952d98efba3f2f79018da51517ac75853bc68c2df4"
 
       def install
         bin.install "nuntio"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.51/cli_0.0.51_linux_arm64.tar.gz"
-      sha256 "39f060cff0d50a5489ea7ce8d6300db0fff55d8549bce95fffd7d2b26ef09114"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.52/cli_0.0.52_linux_arm64.tar.gz"
+      sha256 "5a67ff83d31557bae58591cc901b167a2565ae3caeef7224898af84d0a46c6cf"
 
       def install
         bin.install "nuntio"
