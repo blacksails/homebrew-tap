@@ -5,20 +5,20 @@
 class Nuntio < Formula
   desc ""
   homepage "https://github.com/nuntiodev/cli/nuntio"
-  version "0.0.50"
+  version "0.0.51"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.50/cli_0.0.50_darwin_arm64.tar.gz"
-      sha256 "84a3ad22e8670bea33f5e95057e574e4a7143714d7349e5f13cb1cb57c309090"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.51/cli_0.0.51_darwin_arm64.tar.gz"
+      sha256 "36e9f101d88b93c405bacbab2b428490f63a2e963af1785f8f1cb568f03fc53f"
 
       def install
         bin.install "nuntio"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.50/cli_0.0.50_darwin_amd64.tar.gz"
-      sha256 "639592aaed4422ccf403aaa004e5719db417b23a0bcae9e61e5d78f68dc4f206"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.51/cli_0.0.51_darwin_amd64.tar.gz"
+      sha256 "c8429926e40b8e5741b4a8159aadc5fda13482b76f380d4dbb0d9a155fbf54cc"
 
       def install
         bin.install "nuntio"
@@ -27,17 +27,17 @@ class Nuntio < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.50/cli_0.0.50_linux_arm64.tar.gz"
-      sha256 "c372de0ce5632aca82d8ee26471433b379d37296977b0c8cf2c1a325306ebcac"
+    if Hardware::CPU.intel?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.51/cli_0.0.51_linux_amd64.tar.gz"
+      sha256 "a076375ab118d415a584710afbc84c85bc5b9166b50f995860975eda52b531f8"
 
       def install
         bin.install "nuntio"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.50/cli_0.0.50_linux_amd64.tar.gz"
-      sha256 "3f1df17645e08b904f0cb8d21004ded767b2857ceea1923197e0fac7219c7f94"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.51/cli_0.0.51_linux_arm64.tar.gz"
+      sha256 "39f060cff0d50a5489ea7ce8d6300db0fff55d8549bce95fffd7d2b26ef09114"
 
       def install
         bin.install "nuntio"
