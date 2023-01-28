@@ -5,44 +5,35 @@
 class Nuntio < Formula
   desc ""
   homepage "https://github.com/nuntiodev/cli"
-  version "0.0.36"
+  version "0.0.37"
 
   on_macos do
-    url "https://github.com/nuntiodev/cli/releases/download/v0.0.36/cli_0.0.36_darwin_all.tar.gz"
-    sha256 "8125d5b71a91c892b9d2bfc5eacf758e2790376ea68eb803ae177fb927b33123"
+    url "https://github.com/nuntiodev/cli/releases/download/v0.0.37/cli_0.0.37_darwin_all.tar.gz"
+    sha256 "74b41737146a822fb05432552d61939dfe353a1855fd02cc04b90a900408bfd5"
 
     def install
       bin.install "nuntio"
       bash_completion.install "completions/nuntio.bash" => "nuntio"
-      zsh_completion.install "completions/nuntio.zsh" => "_nuntio"
-      fish_completion.install "completions/nuntio.fish"
-      man1.install "manpages/nuntio.1.gz"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.36/cli_0.0.36_linux_arm64.tar.gz"
-      sha256 "394e9d635f27ddda47389f00de55a4e7a92d39847337077c6861dab45e8fa53d"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.37/cli_0.0.37_linux_arm64.tar.gz"
+      sha256 "6677ab6d8416127c9e0ae1c8999012517a5b90c5b339b6350e48c35b40bc6590"
 
       def install
         bin.install "nuntio"
         bash_completion.install "completions/nuntio.bash" => "nuntio"
-        zsh_completion.install "completions/nuntio.zsh" => "_nuntio"
-        fish_completion.install "completions/nuntio.fish"
-        man1.install "manpages/nuntio.1.gz"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.36/cli_0.0.36_linux_amd64.tar.gz"
-      sha256 "4b6a67aa05d006909dc30f55f1967fe41bfb6c30471d34522ff74b9f96232c31"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.37/cli_0.0.37_linux_amd64.tar.gz"
+      sha256 "f4666513d1300bfd3a234330e20e3ff4133204d300a4d3e7b9b7f92d335d411b"
 
       def install
         bin.install "nuntio"
         bash_completion.install "completions/nuntio.bash" => "nuntio"
-        zsh_completion.install "completions/nuntio.zsh" => "_nuntio"
-        fish_completion.install "completions/nuntio.fish"
-        man1.install "manpages/nuntio.1.gz"
       end
     end
   end
