@@ -5,32 +5,44 @@
 class Nuntio < Formula
   desc ""
   homepage "https://github.com/nuntiodev/cli"
-  version "0.0.35"
+  version "0.0.36"
 
   on_macos do
-    url "https://github.com/nuntiodev/cli/releases/download/v0.0.35/cli_0.0.35_darwin_all.tar.gz"
-    sha256 "5846334fc4c19992551676e050ef7047a96c1c8eab34a677e6aff425c3a4c2cc"
+    url "https://github.com/nuntiodev/cli/releases/download/v0.0.36/cli_0.0.36_darwin_all.tar.gz"
+    sha256 "8125d5b71a91c892b9d2bfc5eacf758e2790376ea68eb803ae177fb927b33123"
 
     def install
-      bin.install "cli"
+      bin.install "nuntio"
+      bash_completion.install "completions/nuntio.bash" => "nuntio"
+      zsh_completion.install "completions/nuntio.zsh" => "_nuntio"
+      fish_completion.install "completions/nuntio.fish"
+      man1.install "manpages/nuntio.1.gz"
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.35/cli_0.0.35_linux_amd64.tar.gz"
-      sha256 "aeace0bc9807bd3d21354f6a338651e2c52b8bb6c3c60368364c37ac45ac7898"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.36/cli_0.0.36_linux_arm64.tar.gz"
+      sha256 "394e9d635f27ddda47389f00de55a4e7a92d39847337077c6861dab45e8fa53d"
 
       def install
         bin.install "nuntio"
+        bash_completion.install "completions/nuntio.bash" => "nuntio"
+        zsh_completion.install "completions/nuntio.zsh" => "_nuntio"
+        fish_completion.install "completions/nuntio.fish"
+        man1.install "manpages/nuntio.1.gz"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.35/cli_0.0.35_linux_arm64.tar.gz"
-      sha256 "936b637d3e76e27fcb812dc95bdde411ce1485652b7e1241383e57b406236dc4"
+    if Hardware::CPU.intel?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.36/cli_0.0.36_linux_amd64.tar.gz"
+      sha256 "4b6a67aa05d006909dc30f55f1967fe41bfb6c30471d34522ff74b9f96232c31"
 
       def install
         bin.install "nuntio"
+        bash_completion.install "completions/nuntio.bash" => "nuntio"
+        zsh_completion.install "completions/nuntio.zsh" => "_nuntio"
+        fish_completion.install "completions/nuntio.fish"
+        man1.install "manpages/nuntio.1.gz"
       end
     end
   end
