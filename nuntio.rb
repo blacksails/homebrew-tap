@@ -5,42 +5,32 @@
 class Nuntio < Formula
   desc ""
   homepage "https://github.com/nuntiodev/cli"
-  version "0.0.32"
+  version "0.0.33"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.32/cli_Darwin_x86_64.tar.gz"
-      sha256 "0c6843e62a1cc5ff9457858a801a02ddd9aaef6c6ec2a4696972afd8169467e5"
+    url "https://github.com/nuntiodev/cli/releases/download/v0.0.33/cli_0.0.33_darwin_all.tar.gz"
+    sha256 "a2725e251afb9d5466e8f1487c811078309a4fe2d40ac52df038b7962d32f622"
 
-      def install
-        bin.install "cli"
-      end
-    end
-    if Hardware::CPU.arm?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.32/cli_Darwin_arm64.tar.gz"
-      sha256 "55f9f6514e0bcdb8808f59f2e1a184d0d8cce6982a61ee9042eb602ca73253bf"
-
-      def install
-        bin.install "cli"
-      end
+    def install
+      bin.install "cli"
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.32/cli_Linux_x86_64.tar.gz"
-      sha256 "ffd23b76d6c898aacefc02bbd21940ac14485fb40951fecaeb7f1073eba40ce4"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.33/cli_0.0.33_linux_arm64.tar.gz"
+      sha256 "b9c9d71c0c817e2ab1e09d35e27bcfbf56fad9a7720f7bab9633b134e44cf8e6"
 
       def install
-        bin.install "cli"
+        bin.install "nuntio"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.32/cli_Linux_arm64.tar.gz"
-      sha256 "42dfe67d0c4eb3d773392ac0b03b8e857534dc6b9eccde6af316ac45fea89986"
+    if Hardware::CPU.intel?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.33/cli_0.0.33_linux_amd64.tar.gz"
+      sha256 "8c705eb97350827b909b559a53abe4a0719de3f48d7a84cb2945ac3e69065834"
 
       def install
-        bin.install "cli"
+        bin.install "nuntio"
       end
     end
   end
