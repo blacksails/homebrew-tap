@@ -5,35 +5,42 @@
 class Nuntio < Formula
   desc ""
   homepage "https://github.com/nuntiodev/cli"
-  version "0.0.37"
+  version "0.0.38"
 
   on_macos do
-    url "https://github.com/nuntiodev/cli/releases/download/v0.0.37/cli_0.0.37_darwin_all.tar.gz"
-    sha256 "74b41737146a822fb05432552d61939dfe353a1855fd02cc04b90a900408bfd5"
+    if Hardware::CPU.intel?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.38/cli_0.0.38_darwin_amd64.tar.gz"
+      sha256 "57c9cfe7ad8f6bc7499c8282376ce005ac779560cd7a4623b1f1140ae31256fa"
 
-    def install
-      bin.install "nuntio"
-      bash_completion.install "completions/nuntio.bash" => "nuntio"
+      def install
+        bin.install "cli"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.38/cli_0.0.38_darwin_arm64.tar.gz"
+      sha256 "7cd61d67d6e5f406557162ae7797c0bd0eceb63d4b053624cfa8cffa3a5f93b7"
+
+      def install
+        bin.install "cli"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.37/cli_0.0.37_linux_arm64.tar.gz"
-      sha256 "6677ab6d8416127c9e0ae1c8999012517a5b90c5b339b6350e48c35b40bc6590"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.38/cli_0.0.38_linux_arm64.tar.gz"
+      sha256 "960d5641fadc421605b5f98b81faea9797d4896a1f1a52146b5233b6717242d2"
 
       def install
-        bin.install "nuntio"
-        bash_completion.install "completions/nuntio.bash" => "nuntio"
+        bin.install "cli"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/nuntiodev/cli/releases/download/v0.0.37/cli_0.0.37_linux_amd64.tar.gz"
-      sha256 "f4666513d1300bfd3a234330e20e3ff4133204d300a4d3e7b9b7f92d335d411b"
+      url "https://github.com/nuntiodev/cli/releases/download/v0.0.38/cli_0.0.38_linux_amd64.tar.gz"
+      sha256 "f7604c08b489aa7dc6db33d89c685421213ab21ca24089bb2750258f83163e6b"
 
       def install
-        bin.install "nuntio"
-        bash_completion.install "completions/nuntio.bash" => "nuntio"
+        bin.install "cli"
       end
     end
   end
